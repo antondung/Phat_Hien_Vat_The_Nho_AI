@@ -16,3 +16,10 @@
 cmc-ai-be/cmc-ai-be/data/
 **/*.log
 cmc-ai-be/cmc-ai-be/weights/*.pt
+
+# Local training data and model artifacts (public repository)
+/data gspt/
+/model test/
+!/model test/
+/model test/*
+!/model test/*.ipynb
