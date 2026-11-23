@@ -1,0 +1,21 @@
+import { createRequire } from 'node:module';
+const { chromium } = createRequire(import.meta.url)('/workspace/pwtest/node_modules/playwright-core');
+const BASE='http://127.0.0.1:5178', OUT='/workspace/fe-shots/analysis-stream';
+const b = await chromium.launch({ executablePath:'/usr/bin/google-chrome', args:['--no-sandbox','--disable-dev-shm-usage'] });
+const ctx = await b.newContext({ viewport:{width:1229,height:603}, deviceScaleFactor:1 });
+const p = await ctx.newPage();
+await p.goto(`${BASE}/dang-nhap`);
+if (p.url().includes('dang-nhap')) { await p.fill('input[type="email"]','admin@examguard.vn'); await p.fill('input[type="password"]','admin123'); await p.click('button.btn-primary'); await p.waitForSelector('.sidebar'); }
+await p.goto(`${BASE}/phan-tich`); await p.waitForSelector('.det-grid');
+await p.setInputFiles('input[type="file"]', OUT+'/_source.mp4');
+await p.waitForSelector('.stage-full-btn'); await p.waitForTimeout(2500);
+await p.screenshot({path:OUT+'/fullscreen_0-nut.png'});
+await p.click('.stage-full-btn'); await p.waitForTimeout(800);
+const st = await p.evaluate(()=>({fs: !!document.fullscreenElement, cls: document.fullscreenElement?.className, view: document.querySelector('.stage-view').getBoundingClientRect().toJSON(), ctr: document.querySelector('.stage-controls').getBoundingClientRect().toJSON(), win:[innerWidth,innerHeight]}));
+console.log(JSON.stringify(st));
+await p.screenshot({path:OUT+'/fullscreen_1-mo.png'});
+await p.click('.stage-full-btn'); await p.waitForTimeout(500);
+console.log('after exit', await p.evaluate(()=>!!document.fullscreenElement));
+await p.dblclick('.stage-view'); await p.waitForTimeout(500);
+console.log('dblclick', await p.evaluate(()=>!!document.fullscreenElement));
+await b.close();

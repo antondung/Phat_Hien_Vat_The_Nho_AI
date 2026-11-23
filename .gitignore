@@ -1,0 +1,18 @@
+# Local configuration and secrets
+**/.env
+!**/.env.example
+
+# Python runtime and generated files
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+
+# Frontend dependencies and builds
+**/node_modules/
+**/dist/
+
+# Local data, logs, and model weights
+cmc-ai-be/cmc-ai-be/data/
+**/*.log
+cmc-ai-be/cmc-ai-be/weights/*.pt

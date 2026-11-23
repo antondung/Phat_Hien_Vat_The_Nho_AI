@@ -1,0 +1,74 @@
+{
+ "det": {
+  "fps": 164,
+  "metrics": [
+   {
+    "label": "mAP50 (test)",
+    "value": 0.669
+   },
+   {
+    "label": "mAP50-95 (test)",
+    "value": 0.449
+   },
+   {
+    "label": "Precision",
+    "value": 0.784
+   },
+   {
+    "label": "Recall",
+    "value": 0.633
+   }
+  ],
+  "perClass": [
+   {
+    "cls": "person",
+    "ap50": 0.965,
+    "precision": 0,
+    "recall": 0
+   },
+   {
+    "cls": "phone",
+    "ap50": 0.43,
+    "precision": 0,
+    "recall": 0
+   },
+   {
+    "cls": "paper",
+    "ap50": 0.718,
+    "precision": 0,
+    "recall": 0
+   },
+   {
+    "cls": "calculator",
+    "ap50": 0.563,
+    "precision": 0,
+    "recall": 0
+   }
+  ]
+ },
+ "pose": {
+  "fps": 158,
+  "metrics": [
+   {
+    "label": "Pose mAP50",
+    "value": 0.759
+   },
+   {
+    "label": "Pose mAP50-95",
+    "value": 0.708
+   },
+   {
+    "label": "Box mAP50",
+    "value": 0.95
+   },
+   {
+    "label": "Precision",
+    "value": 0.77
+   },
+   {
+    "label": "Recall",
+    "value": 0.775
+   }
+  ]
+ }
+}

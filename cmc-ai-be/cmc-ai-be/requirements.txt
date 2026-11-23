@@ -1,0 +1,14 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pyjwt>=2.8
+opencv-python>=4.9
+# Chỉ cài MỘT gói OpenCV. Không cài thêm opencv-python-headless hay opencv-contrib-python
+# (cài chồng làm hỏng DirectShow trên Windows: 'can't be used to capture by index').
+numpy>=1.26
+pyyaml>=6.0
+# Khi đấu model thật (DETECTOR=yolo) cài thêm:
+# ultralytics>=8.3
+imageio-ffmpeg>=0.5   # ffmpeg đóng gói sẵn để ghép clip (Windows không cần cài ffmpeg riêng)
+
+# Windows: run.bat cài thêm ultralytics và pygrabber (liệt kê DirectShow).
